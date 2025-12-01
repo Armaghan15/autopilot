@@ -67,6 +67,7 @@ export const Solutions = () => {
         <div className="flex flex-col gap-6 items-center mt-10 lg:flex-row lg:justify-center">
           {processCards.map(({ step, title, inverse, features }) => (
             <div
+              key={step}
               className={twMerge(
                 "p-10 border border-[#F1F1F1] rounded-3xl shadow-[0_7px_14px_#EAEAEA] max-w-xs w-full",
                 inverse === true && "border-black bg-black text-white"
@@ -86,8 +87,8 @@ export const Solutions = () => {
                 </span>
               </div>
               <ul className="flex flex-col gap-5 mt-8">
-                {features.map((feature) => (
-                  <li className="text-sm flex items-center gap-4">
+                {features.map((feature, index) => (
+                  <li key={index} className="text-sm flex items-center gap-4">
                     <CheckIcon className="h-6 w-6" />
                     <span>{feature}</span>
                   </li>
